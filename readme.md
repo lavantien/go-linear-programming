@@ -17,3 +17,9 @@
 - Find a binary vector `[b1, b2, ..., bn]`
 - Then do dot product with the vector `objects.Weight` with the constraint: `b1 + b2 + ... + bn <= capacity`
 - And maximize dot product with the vector `objects.Value`
+
+## Run
+
+```bash
+make test
+```
