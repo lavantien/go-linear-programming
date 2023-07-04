@@ -14,6 +14,6 @@
 
 - [Knapsack Problem](https://en.wikipedia.org/wiki/Knapsack_problem)
 - A list of objects where each object has a weight and a value: `Object{Weight, Value}`
-- Find a vector `[b1, b2, ..., bn]`
-- That dot product with the vector `objects.Weight` subject to the constraint: `b1 + b2 + ... + bn <= capacity`
+- Find a binary vector `[b1, b2, ..., bn]`
+- Then do dot product with the vector `objects.Weight` with the constraint: `b1 + b2 + ... + bn <= capacity`
 - And maximize dot product with the vector `objects.Value`
