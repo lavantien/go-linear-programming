@@ -40,6 +40,17 @@ func TestKnapsack(t *testing.T) {
 				index:  []int{1, 3, 4, 5},
 			},
 		},
+		{
+			name: "Empty",
+			input: param{
+				objects:  []Object{},
+				capacity: 17,
+			},
+			want: result{
+				result: 0.0,
+				index:  []int{},
+			},
+		},
 	}
 	for _, tc := range table {
 		tc := tc
@@ -113,6 +124,42 @@ func TestNextBinary(t *testing.T) {
 			gotResult := tc.input.vars
 			if !cmp.Equal(gotResult, tc.want.result) {
 				t.Errorf("NextBinary(%v)\ngot\t%v,\nwant\t%v", tc.input.vars, gotResult, tc.want.result)
+			}
+		})
+	}
+}
+
+func TestDotProduct(t *testing.T) {
+	type param struct {
+		a []float64
+		b []float64
+	}
+	type result struct {
+		result float64
+	}
+	table := []struct {
+		name  string
+		input param
+		want  result
+	}{
+		{
+			name: "OK1",
+			input: param{
+				a: []float64{1, 2, 3},
+				b: []float64{4, 5, 6},
+			},
+			want: result{
+				result: 32,
+			},
+		},
+	}
+	for _, tc := range table {
+		tc := tc
+		t.Run(tc.name, func(t *testing.T) {
+			t.Parallel()
+			gotResult := DotProduct(tc.input.a, tc.input.b)
+			if gotResult != tc.want.result {
+				t.Errorf("DotProduct(%v, %v)\ngot\t%v,\nwant\t%v", tc.input.a, tc.input.b, gotResult, tc.want.result)
 			}
 		})
 	}
